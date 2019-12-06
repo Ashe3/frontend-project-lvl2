@@ -1,0 +1,42 @@
+{
+  "name": "frontend-project-lvl2",
+  "version": "1.0.0",
+  "description": "JS PROJECT",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashe3/frontend-project-lvl2.git"
+  },
+  "author": "Ashe3 (Anton Shevchenko)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashe3/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/Ashe3/frontend-project-lvl2#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.5",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "commander": "^4.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "gendiff": "dist/bin/gendiff.js"
+  }
+}
