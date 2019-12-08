@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import program from 'commander';
+import diff from '../index';
 
 program
   .version('0.0.1')
@@ -8,8 +9,8 @@ program
 program
   .option('-f, --format', 'output format')
   .arguments('<firstConfig> <secondConfig>')
-  .action(() => {
-    console.log('Something');
+  .action((firstConfig, secondConfig) => {
+    diff(firstConfig, secondConfig);
   });
 
 program
