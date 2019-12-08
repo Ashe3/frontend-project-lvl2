@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import program from 'commander';
-import diff from '../index';
+import genDiff from '../index';
 
 program
   .version('0.0.1')
@@ -10,7 +10,8 @@ program
   .option('-f, --format', 'output format')
   .arguments('<firstConfig> <secondConfig>')
   .action((firstConfig, secondConfig) => {
-    diff(firstConfig, secondConfig);
+    const difference = genDiff(firstConfig, secondConfig);
+    console.log(difference);
   });
 
 program

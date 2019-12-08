@@ -10,3 +10,6 @@ publish:
 
 start:
 	npx babel-node src/bin/gendiff -h
+
+test:
+	npm test
