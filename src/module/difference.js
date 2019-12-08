@@ -16,19 +16,19 @@ const compareValues = (obj1, obj2, key) => {
 const formatOutput = (data) => `{\n${flattenDeep(data).join('\n')}\n}`;
 
 const compareFilesData = (fileData1, fileData2) => {
-  const result = uniq([...Object.keys(fileData1), ...Object.keys(fileData2)])
-    .reduce((acc, key) => {
-      if (has(fileData1, key) && has(fileData2, key)) {
-        return [...acc, compareValues(fileData1, fileData2, key)];
-      }
-      if (!has(fileData1, key) && has(fileData2, key)) {
-        return [...acc, `+ ${key}: ${fileData2[key]}`];
-      }
-      if (has(fileData1, key) && !has(fileData2, key)) {
-        return [...acc, `- ${key}: ${fileData1[key]}`];
-      }
-      return acc;
-    }, []);
+  const keys = uniq([...Object.keys(fileData1), ...Object.keys(fileData2)]);
+  const result = keys.reduce((acc, key) => {
+    if (has(fileData1, key) && has(fileData2, key)) {
+      return [...acc, compareValues(fileData1, fileData2, key)];
+    }
+    if (!has(fileData1, key) && has(fileData2, key)) {
+      return [...acc, `+ ${key}: ${fileData2[key]}`];
+    }
+    if (has(fileData1, key) && !has(fileData2, key)) {
+      return [...acc, `- ${key}: ${fileData1[key]}`];
+    }
+    return acc;
+  }, []);
   return result;
 };
 
